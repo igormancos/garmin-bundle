@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="Stigleder.no">
+  <metadata>
+    <time>{{ time }}</time>
+    <bounds minlat="{{ object.latMin }}" maxlat="{{ object.latMax }}" minlon="{{ object.lngMin }}" maxlon="{{ object.lngMax }}"></bounds>
+  </metadata>
+  <trk>
+    <name><![CDATA[{{ object.name }}]]></name>
+    <trkseg>
+      {% if points | length %}
+        {% for point in points %}
+          <trkpt lon="{{ point['1'] }}" lat="{{ point['0'] }}">
+            <ele>{{ point['2'] }}</ele>
+            <time>{{ point['3'] }}</time>
+          </trkpt>
+        {% endfor %}
+      {% endif %}
+    </trkseg>
+  </trk>
+</gpx>

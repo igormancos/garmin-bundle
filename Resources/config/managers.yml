@@ -1,0 +1,6 @@
+services:
+  site.managers.garmin:
+    class: Site\GarminBundle\Manager\GarminManager
+    arguments: [@doctrine, @validator, @twig]
+    calls:
+      - [setContainer, [@service_container]]
